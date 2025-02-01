@@ -12,8 +12,6 @@ _G.CONFIGURATION = {
         "orbs",  -- enable auto collect orbs
         "hiddenGifts", -- enable autofarm hidden gifts
         "flyingGifts", -- enable autofarm flying gifts
-        "hatchTycoon", -- enable auto open Tech Titanic Egg
-        "autoTycoon", -- enable autofarm tycoon
         "roll", -- enable auto roll
         "webhook", -- enable discord webhook sender
     },
@@ -38,7 +36,7 @@ _G.CONFIGURATION = {
     },
     mining = {
         cap = 5000, -- ore cap in inventory 
-        ores = {"Runic Ore", "Obsidian Ore", "Emerald Ore", "Gold Ore", "Iron Ore", "Copper Ore", "Dirt Ore", "Stone Ore", "Magma Ore"} -- "Magma Ore" ,"Runic Ore","Obsidian Ore", "Emerald Ore", "Gold Ore", "Iron Ore", "Copper Ore", "Dirt Ore", "Stone Ore"
+        ores = {"Runic Ore", "Obsidian Ore", "Emerald Ore", "Magma Ore"} -- "Magma Ore" ,"Runic Ore","Obsidian Ore", "Emerald Ore", "Gold Ore", "Iron Ore", "Copper Ore", "Dirt Ore", "Stone Ore"
     },
     fishing = "Default", -- "Ice", "Corrupted","Default"
     webhook = {
@@ -62,11 +60,11 @@ _G.CONFIGURATION = {
         ["Epic Fishing Chest"] = "perTime",
         ["Legendary Fishing Chest"] = "perTime",
         ["Exotic Fishing Chest"] = "perTime",
-        ["Basic Mining Chest"] = "perTime",
-        ["Rare Mining Chest"] = "perTime",
-        ["Epic Mining Chest"] = "perTime",
-        ["Legendary Fishing Chest"] = "perTime",
-        ["Exotic Mining Chest"] = "perTime",
+        ["Basic Mining Chest"] = "all",
+        ["Rare Mining Chest"] = "all",
+        ["Epic Mining Chest"] = "all",
+        ["Legendary Fishing Chest"] = "all",
+        ["Exotic Mining Chest"] = "all",
         ["Bundle O' Boosts"] = "perTime",
         ["Instant Luck Potion IV"] = "perTime",
         ["The Cocktail"] = "perTime",
