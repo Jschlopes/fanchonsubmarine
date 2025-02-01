@@ -1,53 +1,85 @@
-getgenv().PLAZA = {
-    key = "KITTYWARE_CW1T5KFWP2",
-    webURL = "https://discord.com/api/webhooks/1212848643225296998/0bVliYrNlW2vat-Phqw_m8aNNVIAh9ejcl0FebXrSRusJWM-iVUYm5Li9Yo5oe2vTa0U",
-    debug = false, funct = false, -- These are just for me to debug 🙂
-
-    Seller = {
-        Enabled = true,
-        Config = {
-            RAP_MINIMUM = 20000000,
-            ["RAP_PERCENT+/-"] = -1, -- Percentage Increased/Decreased of RAP to list items for.
-            SELL_BY_RAP_BLACKLISTS = {
-                Strings = {"Chest", "Key", "Voucher"},
-                Classes = {"Pet"},
-                Item_Names = {"Crystal key Upper Half"},
-                Item_Tiers = {1,2,3},
-            },
-
-            SELL_BY_RAP = true, -- Will still sell Custom Items if on a Blacklist
-            SELL_CUSTOM = {
-                {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 4000},
-
-            },
-
-            SERV_HOPPER = true, -- joins new random plaza server ; good for afk selling ; more target audience!
-            MIN_PLAYER_COUNT = 10, -- if #players less than this then join new plaza
-            MAX_SERVER_TIME = 1500, -- max time before joining new plaza
-        },
+setfpscap(10)
+_G.CONFIGURATION = {
+    features = { -- U CAN REMOVE FUNCTION TO DISABLE 
+        "fishing", -- enable auto fishing
+        "upgrade", -- enable auto upgrade
+        "merchants", -- enable auto buying from merchants
+        "consume", -- enable auto use consume
+        "breakables", -- enable autofarm breakables
+        "xSpot", -- enable autofarm xSpot
+        "vending", -- enable auto buying from vending machine
+        "mining", -- enable autofarm mining
+        "orbs",  -- enable auto collect orbs
+        "hiddenGifts", -- enable autofarm hidden gifts
+        "flyingGifts", -- enable autofarm flying gifts
+        "hatchTycoon", -- enable auto open Tech Titanic Egg
+        "autoTycoon", -- enable autofarm tycoon
+        "roll", -- enable auto roll
+        "webhook", -- enable discord webhook sender
+    },
+    merchants = { -- Merchants name, u can put or remove names
+        "FishingMerchant",
+        "IceFishingMerchant",
+        "MiningMerchant",
+        "FactoryMerchant",
+        "StandardMerchant"
     },
 
-    Sniper = {
-        Enabled = false,
-        Config = {
-            STRINGS_BLACKLIST = {
-                {Class = "Potion", Name = "Huge"},
-                {Class = "Eggs", Name = "Huge"},
-                {Class = "Lootbox", Name = "Titanic"},
-                {Class = "Potion", Name = "Titanic"},
-            },
-
-            BUY_STRINGS = {
-            },
-
-            BUY_CUSTOM = {
-                {Class = "Misc", Item = {id = "Gift Bag"}, Cost = 3300},
-           },
-
-            SERV_HOPPER = true, -- only searchs for items within 'BUY_CUSTOM'
-            MIN_SERVER_TIME = 0, -- min server time to prevent error 268 (temp-ban)
-            CHECK_COOLDOWN = 1, -- cooldown before checking all listings again
-        },
+    mail = {
+      items = {},
+      types = {},
+      autoCollectLetters = false,
+      receivers = {}
     },
+
+    tycoon = {
+        rebirth = true, -- auto rebirth
+        waitForFullEggCharge = true
+    },
+    mining = {
+        cap = 5000, -- ore cap in inventory 
+        ores = {"Runic Ore", "Obsidian Ore", "Emerald Ore", "Gold Ore", "Iron Ore", "Copper Ore", "Dirt Ore", "Stone Ore", "Magma Ore"} -- "Magma Ore" ,"Runic Ore","Obsidian Ore", "Emerald Ore", "Gold Ore", "Iron Ore", "Copper Ore", "Dirt Ore", "Stone Ore"
+    },
+    fishing = "Default", -- "Ice", "Corrupted","Default"
+    webhook = {
+        url = "https://discord.com/api/webhooks/1255444350306091061/-9BU3tYLTbC6Mg8HyJZhxXgOFlTOGlUnI3zo2evAr5ax2tdFhJqRy8nvurzhhVW2-z-G", -- discord webhook URL
+        userId = "743935451181875211", -- discord userId for global hatch (optionally)
+        difficultyToSend = 1000000 -- pets difficulty
+    },
+    consumables = { -- "all" or "perTime"
+        ["Shiny Banana"] = "perTime",
+        ["Shiny Apple"] = "perTime",
+        ["Shiny Orange"] = "perTime",
+        ["Shiny Watermelon"] = "perTime",
+        ["Shiny Rainbow Fruit"] = "perTime",
+        ["Shiny Pineapple"] = "perTime",
+        ["Blazing Dice Potion"] = "perTime",
+        ["Rainbow Dice Potion"] = "perTime",
+        ["Golden Dice Potion"] = "perTime",
+        ["Instant Luck Potion III"] = "perTime",-- The list can go on indefinitely...
+        ["Rare Fishing Chest"] = "perTime",
+        ["Basic Fishing Chest"] = "perTime",
+        ["Epic Fishing Chest"] = "perTime",
+        ["Legendary Fishing Chest"] = "perTime",
+        ["Exotic Fishing Chest"] = "perTime",
+        ["Basic Mining Chest"] = "perTime",
+        ["Rare Mining Chest"] = "perTime",
+        ["Epic Mining Chest"] = "perTime",
+        ["Legendary Fishing Chest"] = "perTime",
+        ["Exotic Mining Chest"] = "perTime",
+        ["Bundle O' Boosts"] = "perTime",
+        ["Instant Luck Potion IV"] = "perTime",
+        ["The Cocktail"] = "perTime",
+        ["Lucky Potion VIII"] = "perTime",
+        ["Lucky Potion VII"] = "perTime",
+        ["Tech Giftbag"] = "perTime",
+        ["Basic Fishing Bait"] = "perTime",
+        ["Rare Fishing Bait"] = "perTime",
+        ["Epic Fishing Bait"] = "perTime",
+        ["Legendary Fishing Bait"] = "perTime",
+        ["Mining Damage Scroll"] = "perTime",
+        ["Mining Speed Scroll"] = "perTime",
+        ["Mining Loot Scroll"] = "perTime"
+    }
 }
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/1e962817f871cae55a46f0f4c6d4c186.lua"))()
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e6e2db3c61589da58ba62dd30a1b4d60.lua"))()
